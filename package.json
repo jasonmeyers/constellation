@@ -1,0 +1,9 @@
+{
+  "name": "Constellation",
+  "version": "0.0.0",
+  "description": "public facing marketing and funnel website for a digital consultancy",
+  "main": "index.html",
+  "repository": "git@github.com:jasonmeyers/constellation.git",
+  "author": "Jason Meyers <jason.meyers@gmail.com>",
+  "license": "MIT"
+}
