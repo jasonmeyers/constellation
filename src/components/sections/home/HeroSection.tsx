@@ -1,5 +1,5 @@
-import Button from '../../ui/Button';
-import Container from '../../ui/Container';
+import Button from "../../ui/Button";
+import Container from "../../ui/Container";
 
 function HeroSection() {
   return (
@@ -7,20 +7,20 @@ function HeroSection() {
       <Container width="reading" className="py-32 md:py-40 text-center">
         {/* Eyebrow text */}
         <p className="text-accent font-medium text-sm uppercase tracking-wide mb-6">
-          Digital Consulting for Modern Businesses
+          Digital Consulting for Your Business.
         </p>
 
         {/* Main Heading */}
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-          Data-Driven Growth for{' '}
+          Data-Driven Growth for{" "}
           <span className="text-accent">Modern Businesses</span>
         </h1>
 
         {/* Subtitle */}
         <p className="text-xl md:text-2xl text-foreground-secondary max-w-3xl mx-auto mb-12 leading-relaxed">
           We help SMBs unlock revenue growth and build lasting customer
-          relationships through intelligent analytics and purpose-built
-          digital products.
+          relationships through intelligent analytics and purpose-built digital
+          products.
         </p>
 
         {/* CTA Buttons */}

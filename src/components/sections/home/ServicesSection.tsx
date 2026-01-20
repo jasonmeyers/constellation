@@ -173,6 +173,112 @@ function ServicesSection() {
               can focus on high-value activities.
             </p>
           </Card>
+
+          {/* Service 7 */}
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
+              Ecommerce Performance
+            </h3>
+            <p className="text-foreground-secondary leading-relaxed">
+              Streamline your product display, catalog view, and checkout process.
+              Optimize every touchpoint to deliver seamless shopping experiences
+              and never lose a customer to bad UX.
+            </p>
+          </Card>
+
+          {/* Service 8 */}
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 008 10.172V5L7 4z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
+              A/B Testing
+            </h3>
+            <p className="text-foreground-secondary leading-relaxed">
+              Make data-driven decisions with confidence. We design and implement
+              rigorous testing frameworks to optimize conversions, messaging, and
+              user experiences based on real user behavior.
+            </p>
+          </Card>
+
+          {/* Service 9 */}
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
+              SEO Management
+            </h3>
+            <p className="text-foreground-secondary leading-relaxed">
+              Improve your organic visibility and drive qualified traffic. We
+              optimize your site structure, content, and technical performance
+              to rank higher and attract customers actively searching for your
+              solutions.
+            </p>
+          </Card>
+
+          {/* Service 10 */}
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
+                />
+              </svg>
+            </div>
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
+              SEM
+            </h3>
+            <p className="text-foreground-secondary leading-relaxed">
+              Maximize ROI from paid search campaigns. We create, manage, and
+              optimize search engine marketing strategies that target the right
+              audiences, reduce cost-per-acquisition, and drive measurable
+              revenue growth.
+            </p>
+          </Card>
         </div>
 
         {/* Call to Action */}
