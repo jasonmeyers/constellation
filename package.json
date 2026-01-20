@@ -9,6 +9,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
+    "generate": "npm run build",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
