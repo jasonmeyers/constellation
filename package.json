@@ -1,5 +1,5 @@
 {
-  "name": "Constellation",
+  "name": "constellation-sonoma",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,6 +15,7 @@
     "typecheck": "tsc -b"
   },
   "dependencies": {
+    "@netlify/vite-plugin": "^2.7.20",
     "@tanstack/react-query": "^5.90.16",
     "@tanstack/react-router": "^1.149.3",
     "react": "^19.2.3",
@@ -25,7 +26,7 @@
     "@tailwindcss/postcss": "^4.1.18",
     "@tanstack/react-query-devtools": "^5.91.2",
     "@tanstack/router-devtools": "^1.149.3",
-    "@tanstack/router-plugin": "^1.149.3",
+    "@tanstack/router-vite-plugin": "^1.149.3",
     "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.2",
