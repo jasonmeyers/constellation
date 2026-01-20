@@ -1,13 +1,13 @@
 function ServicesSection() {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             What We Do
           </h2>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground-muted max-w-2xl mx-auto">
             We partner with small and medium businesses to accelerate growth
             through data intelligence and custom digital solutions.
           </p>
@@ -16,10 +16,10 @@ function ServicesSection() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {/* Service 1 */}
-          <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-200">
-            <div className="bg-orange-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
+            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-orange-600"
+                className="w-8 h-8 text-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -31,10 +31,10 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Analytics & Insights
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-foreground-muted leading-relaxed">
               Transform raw data into actionable insights. We build custom
               analytics platforms that help you understand your customers,
               optimize operations, and make data-driven decisions with
@@ -43,10 +43,10 @@ function ServicesSection() {
           </div>
 
           {/* Service 2 */}
-          <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-200">
-            <div className="bg-orange-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
+            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-orange-600"
+                className="w-8 h-8 text-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -58,10 +58,10 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Revenue Growth
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-foreground-muted leading-relaxed">
               Drive sustainable sales growth with intelligent tools and
               strategies. From lead generation to conversion optimization, we
               help you identify opportunities and accelerate your revenue
@@ -70,10 +70,10 @@ function ServicesSection() {
           </div>
 
           {/* Service 3 */}
-          <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-200">
-            <div className="bg-orange-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
+            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-orange-600"
+                className="w-8 h-8 text-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -85,10 +85,10 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Customer Retention
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-foreground-muted leading-relaxed">
               Build lasting relationships that drive recurring revenue. We
               develop customer engagement platforms and retention strategies
               that turn one-time buyers into loyal advocates.
@@ -96,10 +96,10 @@ function ServicesSection() {
           </div>
 
           {/* Service 4 */}
-          <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-200">
-            <div className="bg-orange-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
+            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-orange-600"
+                className="w-8 h-8 text-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -111,10 +111,10 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Custom Product Development
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-foreground-muted leading-relaxed">
               Purpose-built digital products tailored to your unique needs. We
               design and develop scalable web applications, dashboards, and
               automation tools that solve real business problems.
@@ -122,10 +122,10 @@ function ServicesSection() {
           </div>
 
           {/* Service 5 */}
-          <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-200">
-            <div className="bg-orange-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
+            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-orange-600"
+                className="w-8 h-8 text-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -137,10 +137,10 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Digital Strategy
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-foreground-muted leading-relaxed">
               Chart the right course for digital transformation. We help you
               identify opportunities, prioritize initiatives, and build a
               roadmap that aligns technology investments with business goals.
@@ -148,10 +148,10 @@ function ServicesSection() {
           </div>
 
           {/* Service 6 */}
-          <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-slate-200">
-            <div className="bg-orange-100 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
+            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-orange-600"
+                className="w-8 h-8 text-accent"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -163,10 +163,10 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-slate-900 mb-3">
+            <h3 className="text-2xl font-bold text-foreground mb-3">
               Process Automation
             </h3>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-foreground-muted leading-relaxed">
               Eliminate manual work and boost efficiency. We automate repetitive
               tasks, integrate systems, and streamline workflows so your team
               can focus on high-value activities.
@@ -176,10 +176,10 @@ function ServicesSection() {
 
         {/* Call to Action */}
         <div className="mt-16 text-center">
-          <p className="text-lg text-slate-700 mb-6">
+          <p className="text-lg text-foreground mb-6">
             Ready to accelerate your business growth?
           </p>
-          <button className="bg-orange-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-orange-500 transition-all duration-300 shadow-lg hover:shadow-orange-500/30">
+          <button className="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent-hover transition-all duration-300 shadow-lg hover:shadow-accent/30">
             Schedule a Consultation
           </button>
         </div>
