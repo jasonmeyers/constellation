@@ -13,9 +13,8 @@ function Navigation() {
             <div className="bg-accent text-white text-2xl font-bold px-3 py-2 rounded-lg">
               CS
             </div>
-            <div className="flex flex-col text-sm leading-tight text-foreground">
-              <div>Constellation</div>
-              <div>Sonoma</div>
+            <div className="text-sm whitespace-nowrap text-foreground">
+              Constellation Sonoma
             </div>
           </div>
 
