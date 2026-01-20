@@ -1,6 +1,7 @@
 [build]
   # Build command - runs TypeScript compilation and Vite build
-  command = "npm run build"
+[build]
+  command = "npm run generate && npm run build"
 
   # Directory that contains the deploy-ready HTML files and assets
   publish = "dist"
