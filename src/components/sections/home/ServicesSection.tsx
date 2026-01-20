@@ -1,25 +1,26 @@
+import Button from '../../ui/Button';
+import Card from '../../ui/Card';
+import Container from '../../ui/Container';
+import SectionHeader from '../../ui/SectionHeader';
+
 function ServicesSection() {
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-24 md:py-32 bg-background-subtle">
+      <Container>
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            What We Do
-          </h2>
-          <p className="text-xl text-foreground-muted max-w-2xl mx-auto">
-            We partner with small and medium businesses to accelerate growth
-            through data intelligence and custom digital solutions.
-          </p>
-        </div>
+        <SectionHeader
+          eyebrow="What We Do"
+          title="Services That Drive Results"
+          subtitle="We partner with small and medium businesses to accelerate growth through data intelligence and custom digital solutions."
+        />
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Service 1 */}
-          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
-            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-accent"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -31,22 +32,22 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Analytics & Insights
             </h3>
-            <p className="text-foreground-muted leading-relaxed">
+            <p className="text-foreground-secondary leading-relaxed">
               Transform raw data into actionable insights. We build custom
               analytics platforms that help you understand your customers,
               optimize operations, and make data-driven decisions with
               confidence.
             </p>
-          </div>
+          </Card>
 
           {/* Service 2 */}
-          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
-            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-accent"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -58,22 +59,22 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Revenue Growth
             </h3>
-            <p className="text-foreground-muted leading-relaxed">
+            <p className="text-foreground-secondary leading-relaxed">
               Drive sustainable sales growth with intelligent tools and
               strategies. From lead generation to conversion optimization, we
               help you identify opportunities and accelerate your revenue
               pipeline.
             </p>
-          </div>
+          </Card>
 
           {/* Service 3 */}
-          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
-            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-accent"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -85,21 +86,21 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Customer Retention
             </h3>
-            <p className="text-foreground-muted leading-relaxed">
+            <p className="text-foreground-secondary leading-relaxed">
               Build lasting relationships that drive recurring revenue. We
               develop customer engagement platforms and retention strategies
               that turn one-time buyers into loyal advocates.
             </p>
-          </div>
+          </Card>
 
           {/* Service 4 */}
-          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
-            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-accent"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -111,21 +112,21 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Custom Product Development
             </h3>
-            <p className="text-foreground-muted leading-relaxed">
+            <p className="text-foreground-secondary leading-relaxed">
               Purpose-built digital products tailored to your unique needs. We
               design and develop scalable web applications, dashboards, and
               automation tools that solve real business problems.
             </p>
-          </div>
+          </Card>
 
           {/* Service 5 */}
-          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
-            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-accent"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -137,21 +138,21 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Digital Strategy
             </h3>
-            <p className="text-foreground-muted leading-relaxed">
+            <p className="text-foreground-secondary leading-relaxed">
               Chart the right course for digital transformation. We help you
               identify opportunities, prioritize initiatives, and build a
               roadmap that aligns technology investments with business goals.
             </p>
-          </div>
+          </Card>
 
           {/* Service 6 */}
-          <div className="bg-background-light p-8 rounded-xl shadow-sm hover:shadow-lg transition-shadow duration-300 border border-background-lighter">
-            <div className="bg-accent/10 w-14 h-14 rounded-lg flex items-center justify-center mb-6">
+          <Card interactive>
+            <div className="w-12 h-12 rounded-xl bg-accent-ghost text-accent flex items-center justify-center mb-6">
               <svg
-                className="w-8 h-8 text-accent"
+                className="w-6 h-6"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24">
@@ -163,27 +164,27 @@ function ServicesSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-3">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Process Automation
             </h3>
-            <p className="text-foreground-muted leading-relaxed">
+            <p className="text-foreground-secondary leading-relaxed">
               Eliminate manual work and boost efficiency. We automate repetitive
               tasks, integrate systems, and streamline workflows so your team
               can focus on high-value activities.
             </p>
-          </div>
+          </Card>
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <p className="text-lg text-foreground mb-6">
+        <div className="mt-20 text-center">
+          <p className="text-lg text-foreground-secondary mb-6">
             Ready to accelerate your business growth?
           </p>
-          <button className="bg-accent text-white px-8 py-4 rounded-lg font-semibold hover:bg-accent-hover transition-all duration-300 shadow-lg hover:shadow-accent/30">
+          <Button variant="primary" size="lg">
             Schedule a Consultation
-          </button>
+          </Button>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

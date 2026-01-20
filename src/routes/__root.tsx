@@ -4,7 +4,7 @@ import Navigation from "../components/ui/Navigation";
 
 function RootComponent() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <Outlet />
       <TanStackRouterDevtools />
