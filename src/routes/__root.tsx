@@ -1,17 +1,10 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import Navigation from "../components/ui/Navigation";
-
-function RootComponent() {
-  return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
-      <Outlet />
-      <TanStackRouterDevtools />
-    </div>
-  );
-}
+import { createRootRoute, Outlet } from '@tanstack/react-router';
+import { Layout } from '../components/layout';
 
 export const Route = createRootRoute({
-  component: RootComponent,
+  component: () => (
+    <Layout>
+      <Outlet />
+    </Layout>
+  ),
 });
