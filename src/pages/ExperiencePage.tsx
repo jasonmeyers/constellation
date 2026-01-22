@@ -1,13 +1,13 @@
 import { Link } from '@tanstack/react-router';
-import { ArrowRight, Award, Building2, Users, TrendingUp, Code, Palette, Cloud, Shield } from 'lucide-react';
+import { ArrowRight, Award, Building2, Users, TrendingUp, Code, Palette, Cloud, Shield, ExternalLink } from 'lucide-react';
 import { useSEO } from '../hooks/useSEO';
 import { Card, CardContent, Button } from '../components/ui';
 
 export const ExperiencePage = () => {
   useSEO({
-    title: 'Experience',
-    description: 'Discover Constellation Sonoma\'s extensive experience across industries and technologies. See our track record of delivering successful solutions.',
-    keywords: ['experience', 'expertise', 'track record', 'industries', 'technologies', 'qualifications'],
+    title: 'Experience & Portfolio',
+    description: 'Discover Constellation Sonoma\'s extensive experience, successful projects, and expertise across industries and technologies.',
+    keywords: ['experience', 'expertise', 'track record', 'portfolio', 'projects', 'industries', 'technologies', 'qualifications'],
   });
 
   const industries = [
@@ -17,6 +17,33 @@ export const ExperiencePage = () => {
     { name: 'Technology', projects: 150, icon: Code },
     { name: 'Education', projects: 60, icon: Users },
     { name: 'Manufacturing', projects: 45, icon: Building2 },
+  ];
+
+  const projects = [
+    {
+      title: 'E-Commerce Platform Redesign',
+      client: 'RetailCo',
+      category: 'Web Development',
+      description: 'Complete redesign and development of a high-performance e-commerce platform that increased conversion rates by 45%.',
+      results: ['45% increase in conversion', '2x faster page load times', '60% reduction in cart abandonment'],
+      image: 'placeholder',
+    },
+    {
+      title: 'Enterprise CRM System',
+      client: 'TechCorp',
+      category: 'Custom Software',
+      description: 'Built a custom CRM solution tailored to enterprise needs, streamlining customer management across departments.',
+      results: ['40% efficiency gain', 'Unified customer data', 'Real-time analytics dashboard'],
+      image: 'placeholder',
+    },
+    {
+      title: 'Mobile App Development',
+      client: 'StartupXYZ',
+      category: 'Mobile',
+      description: 'Developed iOS and Android apps for a fast-growing startup, achieving 100k+ downloads in the first month.',
+      results: ['100k+ downloads', '4.8-star rating', 'Featured in App Store'],
+      image: 'placeholder',
+    },
   ];
 
   const technologies = [
@@ -130,6 +157,60 @@ export const ExperiencePage = () => {
                   <div className="text-4xl font-bold text-primary-600">{achievement.metric}</div>
                   <h3 className="text-lg font-semibold text-gray-900">{achievement.label}</h3>
                   <p className="text-sm text-gray-600">{achievement.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Featured Projects */}
+      <section className="section-padding bg-gray-50">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              Featured Projects
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Explore our collection of successful projects and see how we've helped businesses
+              achieve remarkable results through innovative solutions.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <Card key={index} variant="shadow" className="group hover:shadow-xl transition-shadow">
+                <CardContent className="p-0 space-y-4">
+                  {/* Project Image Placeholder */}
+                  <div className="h-48 bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center">
+                    <span className="text-white font-bold text-lg">{project.title}</span>
+                  </div>
+
+                  <div className="p-6 space-y-4">
+                    <div>
+                      <div className="text-sm text-primary-600 font-medium mb-2">{project.category}</div>
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
+                      <div className="text-sm text-gray-600 mb-2">Client: {project.client}</div>
+                      <p className="text-gray-600">{project.description}</p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <h4 className="text-sm font-semibold text-gray-900">Key Results:</h4>
+                      <ul className="space-y-1">
+                        {project.results.map((result, i) => (
+                          <li key={i} className="text-sm text-gray-600 flex items-start">
+                            <span className="text-primary-600 mr-2">•</span>
+                            {result}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <Button variant="outline" className="w-full group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600 transition-colors">
+                      View Case Study
+                      <ExternalLink className="ml-2 h-4 w-4" />
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -291,8 +372,8 @@ export const ExperiencePage = () => {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary-900" asChild>
-                <Link to="/portfolio">
-                  View Portfolio
+                <Link to="/services">
+                  View Services
                 </Link>
               </Button>
             </div>
