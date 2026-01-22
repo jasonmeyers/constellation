@@ -8,7 +8,6 @@ export const queryKeys = {
   blogPost: (slug: string) => ['blogPost', slug],
   services: 'services',
   service: (id: string) => ['service', id],
-  analytics: 'analytics',
 } as const;
 
 // Blog hooks
@@ -70,15 +69,5 @@ export const useNewsletterSubscription = () => {
     onError: (error) => {
       console.error('Newsletter subscription error:', error);
     },
-  });
-};
-
-// Analytics hook
-export const useAnalytics = () => {
-  return useQuery({
-    queryKey: [queryKeys.analytics],
-    queryFn: apiService.getAnalytics,
-    staleTime: 2 * 60 * 1000, // 2 minutes
-    refetchInterval: 5 * 60 * 1000, // Refetch every 5 minutes
   });
 };

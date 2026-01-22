@@ -2,12 +2,14 @@ import { useState } from 'react';
 import { Send } from 'lucide-react';
 import { Button, Input, Textarea } from '../ui';
 import { type ContactForm as ContactFormType } from '../../types';
+import { useAnalytics } from '../../hooks/useAnalytics';
 
 interface ContactFormProps {
   onSubmit?: (data: ContactFormType) => void;
 }
 
 export const ContactForm = ({ onSubmit }: ContactFormProps) => {
+  const { trackFormSubmission } = useAnalytics();
   const [formData, setFormData] = useState<ContactFormType>({
     name: '',
     email: '',
@@ -29,15 +31,21 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     try {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000));
-      
+
       if (onSubmit) {
         onSubmit(formData);
       }
-      
+
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
+
+      // Track successful form submission
+      trackFormSubmission('contact_form', true);
     } catch (error) {
       console.error('Error submitting form:', error);
+
+      // Track failed form submission
+      trackFormSubmission('contact_form', false);
     } finally {
       setIsSubmitting(false);
     }

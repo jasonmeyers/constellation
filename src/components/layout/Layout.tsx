@@ -1,6 +1,7 @@
 import { type ReactNode } from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { CookieConsentBanner } from '../common/CookieConsentBanner';
 
 interface LayoutProps {
   children: ReactNode;
@@ -14,6 +15,7 @@ export const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <Footer />
+      <CookieConsentBanner />
     </div>
   );
 };
