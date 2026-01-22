@@ -343,7 +343,7 @@ export const ServicesPage = () => {
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary-900" asChild>
-                <Link to="/portfolio">
+                <Link to="/experience">
                   View Our Work
                 </Link>
               </Button>

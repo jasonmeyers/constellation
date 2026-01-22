@@ -273,12 +273,12 @@ export const ContactPage = () => {
               Prefer to Explore First?
             </h2>
             <p className="text-xl text-primary-100">
-              Check out our portfolio and services to learn more about what we can do for you.
+              Check out our experience and services to learn more about what we can do for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" variant="secondary" asChild>
-                <Link to="/portfolio">
-                  View Portfolio
+                <Link to="/experience">
+                  View Experience
                 </Link>
               </Button>
               <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary-900" asChild>
