@@ -1,22 +1,17 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { tanstackRouter } from '@tanstack/router-vite-plugin'
-import path from 'path'
-import { fileURLToPath } from 'url'
-import netlify from "@netlify/vite-plugin";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [
-    tanstackRouter(),
-    netlify(),
-    react(),
-  ],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'),
+  export default defineConfig({
+    plugins: [
+      react(),
+      TanStackRouterVite({
+        routesDirectory: './src/routes',
+      })
+    ],
+    server: {
+      port: 3000,
+      open: true,
     },
-  },
-})
+  })

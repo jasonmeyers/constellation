@@ -1,16 +1,35 @@
-import { createRootRoute, Outlet } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/router-devtools";
-import Navigation from "../components/ui/Navigation";
+import { createRootRoute, Outlet, useRouter } from '@tanstack/react-router';
+import { useEffect } from 'react';
+import { Layout } from '../components/layout';
+import { useCookieConsent } from '../contexts/CookieConsentContext';
+import { trackPageView } from '../lib/analytics';
 
-function RootComponent() {
+const RootComponent = () => {
+  const router = useRouter();
+  const { hasConsent } = useCookieConsent();
+
+  useEffect(() => {
+    // Track initial page view
+    if (hasConsent) {
+      trackPageView(window.location.pathname);
+    }
+
+    // Subscribe to navigation events
+    const unsubscribe = router.subscribe('onLoad', (event) => {
+      if (hasConsent) {
+        trackPageView(event.toLocation.pathname);
+      }
+    });
+
+    return unsubscribe;
+  }, [router, hasConsent]);
+
   return (
-    <div className="min-h-screen bg-white">
-      <Navigation />
+    <Layout>
       <Outlet />
-      <TanStackRouterDevtools />
-    </div>
+    </Layout>
   );
-}
+};
 
 export const Route = createRootRoute({
   component: RootComponent,

@@ -1,35 +1,62 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { forwardRef, type HTMLAttributes } from 'react';
+import { clsx } from 'clsx';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
-  variant?: 'default' | 'subtle' | 'elevated';
-  interactive?: boolean;
-  children: ReactNode;
+  variant?: 'default' | 'bordered' | 'shadow';
 }
 
-function Card({
-  variant = 'default',
-  interactive = false,
-  children,
-  className = '',
-  ...props
-}: CardProps) {
-  const baseStyles = 'rounded-2xl p-8 md:p-10 transition-all duration-300';
+export const Card = forwardRef<HTMLDivElement, CardProps>(
+  ({ className, variant = 'default', children, ...props }, ref) => {
+    const variants = {
+      default: 'bg-white',
+      bordered: 'bg-white border border-gray-200',
+      shadow: 'bg-white shadow-lg border border-gray-100',
+    };
+    
+    return (
+      <div
+        ref={ref}
+        className={clsx(
+          'rounded-lg p-6',
+          variants[variant],
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
 
-  const variantStyles = {
-    default: 'bg-white shadow-soft',
-    subtle: 'bg-background-subtle shadow-soft',
-    elevated: 'bg-white shadow-md-soft',
-  };
+Card.displayName = 'Card';
 
-  const interactiveStyles = interactive ? 'hover:shadow-lg-soft cursor-pointer' : '';
-
-  const classes = `${baseStyles} ${variantStyles[variant]} ${interactiveStyles} ${className}`;
-
-  return (
-    <div className={classes} {...props}>
+export const CardHeader = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, ref) => (
+    <div ref={ref} className={clsx('mb-4', className)} {...props}>
       {children}
     </div>
-  );
-}
+  )
+);
 
-export default Card;
+CardHeader.displayName = 'CardHeader';
+
+export const CardTitle = forwardRef<HTMLHeadingElement, HTMLAttributes<HTMLHeadingElement>>(
+  ({ className, children, ...props }, ref) => (
+    <h3 ref={ref} className={clsx('text-lg font-semibold text-gray-900', className)} {...props}>
+      {children}
+    </h3>
+  )
+);
+
+CardTitle.displayName = 'CardTitle';
+
+export const CardContent = forwardRef<HTMLDivElement, HTMLAttributes<HTMLDivElement>>(
+  ({ className, children, ...props }, ref) => (
+    <div ref={ref} className={clsx('text-gray-600', className)} {...props}>
+      {children}
+    </div>
+  )
+);
+
+CardContent.displayName = 'CardContent';
