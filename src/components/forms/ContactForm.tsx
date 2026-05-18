@@ -8,6 +8,17 @@ interface ContactFormProps {
   onSubmit?: (data: ContactFormType) => void;
 }
 
+const SUBMITTED_COOKIE = "contact_form_submitted";
+
+const getCookie = (name: string) =>
+  document.cookie.split("; ").some((c) => c.startsWith(name + "="));
+
+const setSubmittedCookie = () => {
+  const expires = new Date();
+  expires.setFullYear(expires.getFullYear() + 1);
+  document.cookie = `${SUBMITTED_COOKIE}=1; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+};
+
 export const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const { trackFormSubmission } = useAnalytics();
   const [formData, setFormData] = useState<ContactFormType>({
@@ -17,7 +28,9 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(() =>
+    getCookie(SUBMITTED_COOKIE),
+  );
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -44,6 +57,7 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
         onSubmit(formData);
       }
 
+      setSubmittedCookie();
       setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
 
@@ -76,7 +90,12 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6" name="contact" netlify>
+    <form
+      onSubmit={handleSubmit}
+      className="space-y-6"
+      name="contact"
+      data-netlify="true"
+      netlify>
       <input type="hidden" name="form-name" value="contact" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
