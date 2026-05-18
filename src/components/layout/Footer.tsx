@@ -1,19 +1,14 @@
 import { Link } from '@tanstack/react-router';
 import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { navLinks } from '../../data/navigation';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
-  const footerNavigation = {
-    company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Services', href: '/services' },
-    ],
-    resources: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-    ],
-  };
+  const resources = [
+    { name: 'Privacy Policy', href: '/privacy' },
+    { name: 'Terms of Service', href: '/terms' },
+  ];
 
   const socialLinks = [
     { name: 'Facebook', icon: Facebook, href: '#' },
@@ -58,7 +53,7 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold text-white mb-4">Company</h3>
             <ul className="space-y-2">
-              {footerNavigation.company.map((item) => (
+              {navLinks.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
@@ -75,7 +70,7 @@ export const Footer = () => {
           <div>
             <h3 className="font-semibold text-white mb-4">Resources</h3>
             <ul className="space-y-2">
-              {footerNavigation.resources.map((item) => (
+              {resources.map((item) => (
                 <li key={item.name}>
                   <Link
                     to={item.href}
