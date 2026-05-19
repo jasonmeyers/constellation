@@ -44,14 +44,21 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     setIsSubmitting(true);
 
     try {
-      await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams({
-          "form-name": "contact",
-          ...formData,
-        }).toString(),
-      });
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 8000);
+      try {
+        await fetch("/", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({
+            "form-name": "contact",
+            ...formData,
+          }).toString(),
+          signal: controller.signal,
+        });
+      } finally {
+        clearTimeout(timeout);
+      }
 
       if (onSubmit) {
         onSubmit(formData);
@@ -93,8 +100,9 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     <form
       onSubmit={handleSubmit}
       className="space-y-6"
-      name="contact"
+      name="constellation-contact"
       data-netlify="true"
+      method="POST"
       netlify>
       <input type="hidden" name="form-name" value="contact" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
