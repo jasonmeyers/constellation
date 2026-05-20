@@ -1,25 +1,50 @@
 import { useState } from "react";
-import { Send } from "lucide-react";
+import { Send, CheckCircle, Mail, Phone } from "lucide-react";
 import { Button, Input, Textarea } from "../ui";
 import { type ContactForm as ContactFormType } from "../../types";
 import { useAnalytics } from "../../hooks/useAnalytics";
 
-interface ContactFormProps {
-  onSubmit?: (data: ContactFormType) => void;
-}
+const COOKIE_NAME = "contact_form_submitted";
 
-const SUBMITTED_COOKIE = "contact_form_submitted";
+const hasSubmittedCookie = () =>
+  document.cookie.split("; ").some((c) => c.startsWith(COOKIE_NAME + "="));
 
-const getCookie = (name: string) =>
-  document.cookie.split("; ").some((c) => c.startsWith(name + "="));
-
-const setSubmittedCookie = () => {
+const writeSubmittedCookie = () => {
   const expires = new Date();
   expires.setFullYear(expires.getFullYear() + 1);
-  document.cookie = `${SUBMITTED_COOKIE}=1; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+  document.cookie = `${COOKIE_NAME}=1; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
 };
 
-export const ContactForm = ({ onSubmit }: ContactFormProps) => {
+const ThankYou = () => (
+  <div className="text-center py-12 space-y-6">
+    <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+      <CheckCircle className="w-8 h-8 text-green-600" />
+    </div>
+    <div className="space-y-2">
+      <h3 className="text-2xl font-bold text-gray-900">Thank You!</h3>
+      <p className="text-gray-600">
+        Your message has been sent. We'll get back to you within 24 hours.
+      </p>
+    </div>
+    <div className="pt-4 space-y-3 text-sm text-gray-600">
+      <p className="font-medium text-gray-800">Prefer to reach us directly?</p>
+      <a
+        href="mailto:hello@constellationsonoma.com"
+        className="flex items-center justify-center gap-2 text-primary-600 hover:text-primary-700 transition-colors">
+        <Mail className="w-4 h-4" />
+        hello@constellationsonoma.com
+      </a>
+      <a
+        href="tel:+17075550123"
+        className="flex items-center justify-center gap-2 text-primary-600 hover:text-primary-700 transition-colors">
+        <Phone className="w-4 h-4" />
+        +1 (707) 555-0123
+      </a>
+    </div>
+  </div>
+);
+
+export const ContactForm = () => {
   const { trackFormSubmission } = useAnalytics();
   const [formData, setFormData] = useState<ContactFormType>({
     name: "",
@@ -28,9 +53,12 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(() =>
-    getCookie(SUBMITTED_COOKIE),
-  );
+  const [isSubmitted, setIsSubmitted] = useState(() => hasSubmittedCookie());
+  const [error, setError] = useState<string | null>(null);
+
+  if (isSubmitted) {
+    return <ThankYou />;
+  }
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -42,59 +70,32 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError(null);
 
     try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 8000);
-      try {
-        await fetch("/", {
-          method: "POST",
-          headers: { "Content-Type": "application/x-www-form-urlencoded" },
-          body: new URLSearchParams({
-            "form-name": "contact",
-            ...formData,
-          }).toString(),
-          signal: controller.signal,
-        });
-      } finally {
-        clearTimeout(timeout);
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...formData,
+        }).toString(),
+      });
+
+      if (!res.ok) {
+        throw new Error(`Server responded with ${res.status}`);
       }
 
-      if (onSubmit) {
-        onSubmit(formData);
-      }
-
-      setSubmittedCookie();
+      writeSubmittedCookie();
       setIsSubmitted(true);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-
       trackFormSubmission("contact_form", true);
-    } catch (error) {
-      console.error("Error submitting form:", error);
+    } catch (err) {
+      setError("Something went wrong. Please try again or email us directly.");
       trackFormSubmission("contact_form", false);
     } finally {
       setIsSubmitting(false);
     }
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="text-center p-8 bg-green-50 rounded-lg border border-green-200">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Send className="w-8 h-8 text-green-600" />
-        </div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">
-          Message Sent!
-        </h3>
-        <p className="text-gray-600 mb-4">
-          Thank you for reaching out. We'll get back to you within 24 hours.
-        </p>
-        <Button variant="outline" onClick={() => setIsSubmitted(false)}>
-          Send Another Message
-        </Button>
-      </div>
-    );
-  }
 
   return (
     <form
@@ -104,6 +105,13 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
       data-netlify="true"
       method="POST">
       <input type="hidden" name="form-name" value="contact" />
+
+      {error && (
+        <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm">
+          {error}
+        </div>
+      )}
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
           label="Full Name"
@@ -127,7 +135,7 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
       <Input
         label="Subject"
         name="subject"
-        value={formData.subject}
+        value={formData.subject ?? ""}
         onChange={handleChange}
         placeholder="What's this about?"
       />
