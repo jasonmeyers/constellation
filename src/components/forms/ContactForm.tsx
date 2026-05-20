@@ -51,7 +51,7 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: new URLSearchParams({
-            "form-name": "constellation-contact",
+            "form-name": "contact",
             ...formData,
           }).toString(),
           signal: controller.signal,
@@ -100,10 +100,10 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
     <form
       onSubmit={handleSubmit}
       className="space-y-6"
-      name="constellation-contact"
+      name="contact"
       data-netlify="true"
       method="POST">
-      <input type="hidden" name="form-name" value="constellation-contact" />
+      <input type="hidden" name="form-name" value="contact" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
           label="Full Name"
