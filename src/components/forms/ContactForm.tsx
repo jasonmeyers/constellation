@@ -101,7 +101,6 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
       onSubmit={handleSubmit}
       className="space-y-6"
       name="constellation-contact"
-      data-netlify="true"
       method="POST"
       netlify>
       <input type="hidden" name="form-name" value="constellation-contact" />
