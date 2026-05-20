@@ -101,8 +101,8 @@ export const ContactForm = ({ onSubmit }: ContactFormProps) => {
       onSubmit={handleSubmit}
       className="space-y-6"
       name="constellation-contact"
-      method="POST"
-      netlify>
+      data-netlify="true"
+      method="POST">
       <input type="hidden" name="form-name" value="constellation-contact" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
