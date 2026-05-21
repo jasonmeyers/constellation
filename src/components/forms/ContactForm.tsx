@@ -29,16 +29,16 @@ const ThankYou = () => (
     <div className="pt-4 space-y-3 text-sm text-gray-600">
       <p className="font-medium text-gray-800">Prefer to reach us directly?</p>
       <a
-        href="mailto:hello@constellationsonoma.com"
+        href="mailto:constellationsonoma@gmail.com"
         className="flex items-center justify-center gap-2 text-primary-600 hover:text-primary-700 transition-colors">
         <Mail className="w-4 h-4" />
-        hello@constellationsonoma.com
+        constellationsonoma@gmail.com
       </a>
       <a
-        href="tel:+17075550123"
+        href="tel:+17079137818"
         className="flex items-center justify-center gap-2 text-primary-600 hover:text-primary-700 transition-colors">
         <Phone className="w-4 h-4" />
-        +1 (707) 555-0123
+        +1 (707) 913-7818
       </a>
     </div>
   </div>
@@ -114,12 +114,12 @@ export const ContactForm = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Input
-          label="Full Name"
+          label="Your Name"
           name="name"
           value={formData.name}
           onChange={handleChange}
           required
-          placeholder="Your full name"
+          placeholder="Jane Q. Public"
         />
         <Input
           label="Email Address"
@@ -137,7 +137,7 @@ export const ContactForm = () => {
         name="subject"
         value={formData.subject ?? ""}
         onChange={handleChange}
-        placeholder="What's this about?"
+        placeholder="What problem can we help you solve?"
       />
 
       <Textarea
