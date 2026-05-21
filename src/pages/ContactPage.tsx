@@ -23,7 +23,7 @@ export const ContactPage = () => {
       icon: Mail,
       title: "Email",
       content: "constellationsonoma@gmail.com",
-      action: "constellationsonoma@gmail.com",
+      action: "mailto:constellationsonoma@gmail.com",
     },
     {
       icon: Phone,

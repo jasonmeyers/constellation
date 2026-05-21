@@ -90,7 +90,9 @@ export const ContactForm = () => {
       setIsSubmitted(true);
       trackFormSubmission("contact_form", true);
     } catch (err) {
-      setError("Something went wrong. Please try again or email us directly.");
+      setError(
+        `Something went wrong. ${err} Please try again or email us directly.`,
+      );
       trackFormSubmission("contact_form", false);
     } finally {
       setIsSubmitting(false);
